@@ -24,9 +24,7 @@ Encrypted files produced by this tool are a simple concatenation of:
 - N bytes: IV (16 bytes for AES, 8 bytes for DES/3DES)
 - remaining bytes: ciphertext (raw bytes)
 
-There is no header or metadata other than the fixed salt+iv placement. During decryption the tool expects you to pick the same algorithm and key size used to encrypt the file.
 
-Note: There is no authentication tag or HMAC in the current format. Tampering with ciphertext will not be reliably detected.
 
 ## How to use
 
@@ -41,7 +39,7 @@ Note: There is no authentication tag or HMAC in the current format. Tampering wi
 7. Click "Process File".
 8. After processing, click the download link to save the resulting file.
 
-For decryption, pick the encrypted file, choose the same algorithm and key size used when encrypting, enter the password, and process.
+For decryption, pick the encrypted file, enter the password, and process.you do not need to choose the same algorithm and key size used when encrypting,it will be done automatically.
 
 ## Security notes
 
