@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Encrypt / Decrypt (AES & DES)</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- CryptoJS CDN (includes AES & DES) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>File Encryptor / Decryptor</h1>
+
+    <form id="cryptoForm">
+      <div class="input-group">
+        <label for="fileInput">Choose file</label>
+        <input type="file" id="fileInput" required>
+      </div>
+
+      <div class="input-group">
+        <label>Operation</label>
+        <div class="radio-group">
+          <label><input type="radio" name="mode" value="encrypt" checked> Encrypt</label>
+          <label><input type="radio" name="mode" value="decrypt"> Decrypt</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Algorithm</label>
+        <div class="radio-group">
+          <label><input type="radio" name="algo" value="aes" checked> AES</label>
+          <label><input type="radio" name="algo" value="des"> DES</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="keySize">Key size</label>
+        <select id="keySize">
+          <!-- Default options are AES sizes; script will interpret for DES -->
+          <option value="128">AES - 128 bits</option>
+          <option value="192">AES - 192 bits</option>
+          <option value="256" selected>AES - 256 bits</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter strong password" required>
+      </div>
+
+      <button type="submit" id="submitBtn">Process File</button>
+    </form>
+
+    <div id="result" style="display:none; margin-top:20px;">
+      <a id="downloadLink" download>Download processed file</a>
+    </div>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
